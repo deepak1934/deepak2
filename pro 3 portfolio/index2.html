@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multilication app</title>
+    <style>
+       
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            text-align: center;
+            background-color: yellow;
+            font-family: cursive;
+        }
+        .form{
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.3);
+            border-radius: 10px;
+            margin: 10px;
+
+        }
+        .input{
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 30px;
+            text-align: center;
+            padding: 10px;
+            border: solid 4px green;
+            color: green;
+
+        }
+        .input::placeholder{
+            color: lightgray;
+            font-family: cursive;
+
+        }
+        .btn{
+            background-color: green;
+            color: white;
+            border: none;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            font-family: cursive;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.3);
+            cursor: pointer;
+
+        }
+        .btn:hover{
+            filter: brightness(0,9);
+            
+        }
+        .score{
+            color: green;
+            text-align: right;
+
+        }
+    </style>
+</head>
+<body>
+    <form  class="form" id="form">
+        <h4 class="score" id="score">score : 0</h4>
+        <h1 id="question">what is 1 multiply by 1</h1>
+        <input type="text" class="input" id="input" placeholder="Enter your answer" autofocus autocomplete="off">
+        <button type="submit" class="btn">Submit</button>
+    </form>
+    <script>
+        // const num1 = Math.ceil(Math.random()*10);
+        // const num2 = Math.ceil(Math.random()*10);
+
+        // const questionE1 = document.getElementById("question");
+        // const inputE1 = document.getElementById("input");
+        // const formE1 = document.getElementById("form");
+        // const scoreE1 = document.getElementById("score");
+
+        // let score = JSON.parse( localStorage.getItem("score"));
+        // if(!score){
+        //     score=0;
+        // }
+
+        // scoreE1.innerText = `score: ${score}`;
+
+        // questionE1.innerText = `what is ${num1} multiply by ${num2}?`;
+
+        // const correctAns = num1 * num2 ;
+
+        // formE1.addEventListener("submit" , ()=>{
+        //     const userAns = +inputE1.value
+        //     if(userAns === correctAns){
+        //         score++;
+        //     }else{
+        //         score--;
+        //         updatelocalStorage();
+        //     }
+        // });
+        // function updatelocalStorage(){
+        //     localStorage.setItem("score", JSON.stringify(score))
+        // }
+
+
+const num1 = Math.ceil(Math.random() * 10);
+const num2 = Math.ceil(Math.random() * 10);
+
+const questionEl = document.getElementById("question");
+
+const inputEl = document.getElementById("input");
+
+const formEl = document.getElementById("form");
+
+const scoreEl = document.getElementById("score");
+
+let score = JSON.parse(localStorage.getItem("score"));
+
+if (!score) {
+  score = 0;
+}
+
+scoreEl.innerText = `score: ${score}`;
+
+questionEl.innerText = `What is ${num1} multiply by ${num2}?`;
+
+const correctAns = num1 * num2;
+
+formEl.addEventListener("submit", () => {
+  const userAns = +inputEl.value;
+  if (userAns === correctAns) {
+    score++;
+    updateLocalStorage();
+  } else {
+    score--;
+    updateLocalStorage();
+  }
+});
+
+function updateLocalStorage() {
+localStorage.setItem("score", JSON.stringify(score));}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Photos</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(142, 31, 31)
+        }
+        body::-webkit-scrollbar{
+            display: none;
+        }
+        .image-container{
+            text-align: center;
+
+        }
+        .image-container img{
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.3);
+            background-color: lightgray;
+            width: 300px;
+            height: 300px;
+        }
+        .btn{
+            background-color: slateblue;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0, 4px , 8px , rgba(0,0,0,.3);
+            cursor: pointer;
+            
+        }
+        .btn2{
+            background-color: slateblue;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0, 4px , 8px , rgba(0,0,0,.3);
+            cursor: pointer;
+        
+            
+        }
+        .btn:hover{
+            opacity: 0.9;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://picsum.photos/300?random=1">
+        <img src="https://picsum.photos/300?random=2"> 
+        <img src="https://picsum.photos/300?random=3"> 
+        <!-- <img src="img/crash.png" >
+        <img src="sea.png" >
+        <img src="s.png" > -->
+        
+    </div>
+    <div><button class="btn">Load more</button>
+        <a href="https://picsum.photos/300?random"><button class="btn2">Download Random image</button></div></a>
+        
+
+</body>
+<script>
+   const imageContainerEl = document.querySelector(".image-container");
+
+const btnEl = document.querySelector(".btn");
+
+btnEl.addEventListener("click", () => {
+  imageNum = 10;
+  addNewImages();
+});
+
+function addNewImages() {
+  for (let index = 0; index < imageNum; index++) {
+    const newImgEl = document.createElement("img");
+    newImgEl.src = `https://picsum.photos/300?random=${Math.floor(
+      Math.random() * 2000
+    )}`;
+    imageContainerEl.appendChild(newImgEl);
+  }
+}
+
+
+</script>
+</html>

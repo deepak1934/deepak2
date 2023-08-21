@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz genertaer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: aquamarine;
+        font-family: sans-serif;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        flex-direction: column;
+      }
+      #box {
+        width: 40%;
+
+        padding: 15px;
+        box-shadow: 0px 0px 5px gray;
+        background-color: white;
+        border-radius: 5px;
+      }
+      .row {
+        margin: 2rem;
+        padding: 10px;
+        margin-left: 0;
+      }
+      .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: red;
+        color: wheat;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div id="box">
+        <h2 id="queBox">Q1 this is the dumy question</h2>
+
+        <div class="row">
+          <input
+            type="radio"
+            value="A"
+            id="option-1"
+            name="same"
+            class="options"
+          />
+          <label>a option 1</label>
+        </div>
+        <div class="row">
+          <input
+            type="radio"
+            value="B"
+            id="option-2"
+            name="same"
+            class="options"
+          />
+          <label>b option 2</label>
+        </div>
+        <div class="row">
+          <input
+            type="radio"
+            value="C"
+            id="option-3"
+            name="same"
+            class="options"
+          />
+          <label>c option 3</label>
+        </div>
+        <div class="row">
+          <input
+            type="radio"
+            value="D"
+            id="option-4"
+            name="same"
+            class="options"
+          />
+          <label>d option 4</label>
+        </div>
+        <button class="btn" onclick=" submitQuiz ()">submit</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const questions = [
+      {
+        que: " which of the folllowing is a markeup language",
+        a: "html",
+        b: "css",
+        c: "java script",
+        d: "python",
+        correct: "a",
+      },
+      {
+        que: " what is language using for styling",
+        a: "html",
+        b: "css",
+        c: "java script",
+        d: "python",
+        correct: "b",
+      },
+      {
+        que: " what language works in beckground",
+        a: "html",
+        b: "css",
+        c: "java script",
+        d: "python",
+        correct: "c",
+      },
+    ];
+
+    let total = questions.length;
+    let right =0 , wrong =0;
+    let index = 0;
+    
+    const optionsInput = document.querySelectorAll(".options");
+
+    const queBox = document.getElementById("queBox");
+    const loadQuestion = () => {
+        if(index=== total){
+            return endQuiz()
+        }
+        reset();
+
+
+      const data = questions[index];
+      queBox.innerText = `${index + 1})${data.que}`;
+      console.log(data);
+      optionsInput[0].nextElementSibling.innerText = data.a;
+      optionsInput[1].nextElementSibling.innerText = data.b;
+      optionsInput[2].nextElementSibling.innerText = data.c;
+      optionsInput[3].nextElementSibling.innerText = data.d;
+    };
+    const submitQuiz = () => {
+        const data = questions[index];
+      const ans = getAnswer();
+      if(ans === data.correct){
+        right++;
+      }else{
+wrong++;
+      }
+      index ++;
+      loadQuestion();
+      return;
+    };
+    const getAnswer = () => {
+        let answer;
+      optionsInput.forEach((input) => {
+        if (input.checked) {
+          answer = input.value;
+        } 
+      });
+      return answer;
+    };
+    const reset = () =>{
+        optionsInput.forEach((input) => {
+       input.checked = false;
+      });
+    }
+    const endQuiz =() =>{
+        document.getElementsById('box').inneHTML = `<h3> thank you for playing quiz </h3> 
+        <h2> ${right} ? ${total} are correct </h2>`
+        console.log(endQuiz)
+    }
+
+    
+    loadQuestion();
+    
+  </script>
+</html>

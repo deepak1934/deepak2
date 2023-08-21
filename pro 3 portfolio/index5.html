@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background image scroll</title>
+    <style>
+        
+        body{
+            margin: 0;
+            font-family: sans-serif;
+            
+
+        }
+        body::-webkit-scrollbar{
+            display: none;
+        }
+        
+        .bg-image{
+            width: 100%;
+            height: 100vh;
+            background-image:url("s.png") ;
+            background-position: center ;
+            background-attachment:fixed ;
+            background-size: 160%;
+        }
+        .container{
+            padding: 100px;
+        }
+        h1{
+            font-size: 50px;
+        }
+        p{
+            color: grey;
+        }
+        @media (max-width:500px){
+            .container{
+                padding: 10px;
+            }
+        }
+      
+
+    </style>
+</head>
+<body>
+    <div class="bg-image" id="bg-image"></div>
+    <div class="container">
+        <h1>welocome to our website</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+            
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor suscipit voluptatibus corrupti rem accusantium, molestiae, voluptatem optio, tenetur modi molestias asperiores. Sed doloremque minima tenetur facilis? Numquam laboriosam repudiandae architecto?
+
+        </p>
+    </div>
+
+</body>
+<script>
+    const bgImageE1 = document.getElementById("bg-image")
+
+    window.addEventListener("scroll", ()=>{
+        updateImage()
+    });
+    function updateImage(){
+        bgImageE1.style.opacity = 1 - window.pageYOffset / 900;
+        bgImageE1.style.backgroundSize = 160 - window.pageYOffset + "%"
+    }
+</script>
+</html>
